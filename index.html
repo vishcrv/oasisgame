@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OASIS Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="game-screen">
+            <div id="welcome-screen" class="screen">
+                <div id="ascii-art" class="welcome-ascii"></div>
+                <div id="dialog-box">
+                    <p id="dialog-text"></p>
+                    <div id="input-container">
+                        <input type="text" id="user-input" placeholder="Type here...">
+                        <button id="submit-btn">Next</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Game Over Screen -->
+            <div id="game-over-screen" class="screen hidden">
+                <div id="game-over-ascii" class="ascii-art game-over-ascii"></div>
+                <div class="game-over-message">
+                    <h1>Game Over</h1>
+                    <p id="game-over-text"></p>
+                    <button id="restart-button" class="restart-btn">Play Again</button>
+                </div>
+            </div>
+            
+            <!-- Win Screen -->
+            <div id="win-screen" class="screen hidden">
+                <div id="win-ascii" class="ascii-art win-ascii"></div>
+                <div class="win-message">
+                    <h1>Congratulations!</h1>
+                    <p id="win-text"></p>
+                    <div id="hall-of-fame" class="hall-of-fame">
+                        <h2>Hall of Fame</h2>
+                        <div id="hall-of-fame-content"></div>
+                    </div>
+                    <button id="play-again-button" class="restart-btn">Play Again</button>
+                </div>
+            </div>
+            
+            <div id="game-menu" class="screen hidden">
+                <div class="menu-container">
+                    <h1>OASIS Menu</h1>
+                    <div class="menu-options">
+                        <div class="menu-option" data-game="1">1 : Rock Paper Scissors</div>
+                        <div class="menu-option" data-game="2">2 : Casino Royal</div>
+                        <div class="menu-option" data-game="3">3 : Find it and Get $</div>
+                    </div>
+                    <p>Type the number of the game you want to play:</p>
+                    <div class="menu-input-container">
+                        <input type="text" id="menu-input" placeholder="Type 1, 2, or 3">
+                        <button id="menu-submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="rock-paper-scissors" class="screen hidden">
+                <div class="game-header">
+                    <h1>Rock Paper Scissors</h1>
+                </div>
+                <div class="game-content">
+                    <div class="score-board">
+                        <div class="player-score">
+                            <h2 id="player-name">Player</h2>
+                            <p id="player-score">0</p>
+                        </div>
+                        <div class="cpu-score">
+                            <h2>The ROCK</h2>
+                            <p id="cpu-score">0</p>
+                        </div>
+                    </div>
+                    <div class="game-message" id="rps-message"></div>
+                    <div class="choices">
+                        <div class="choice" id="rock">✊</div>
+                        <div class="choice" id="paper">✋</div>
+                        <div class="choice" id="scissors">✌</div>
+                    </div>
+                    <button id="back-from-rps" class="back-btn">Back to Menu</button>
+                </div>
+            </div>
+            
+            <div id="casino-royal" class="screen hidden">
+                <div class="game-header">
+                    <h1>Casino Royal</h1>
+                </div>
+                <div class="game-content">
+                    <div class="card-display">
+                        <div class="card" id="card-display">?</div>
+                    </div>
+                    <div class="game-message" id="casino-message">Guess the face card I chose (K, Q, J)</div>
+                    <div class="bet-controls">
+                        <input type="number" id="bet-amount" min="500" step="100" value="500">
+                        <button id="place-bet">Place Bet</button>
+                    </div>
+                    <div class="card-choices hidden" id="card-choices">
+                        <div class="card-choice" id="king">K</div>
+                        <div class="card-choice" id="queen">Q</div>
+                        <div class="card-choice" id="jack">J</div>
+                    </div>
+                    <div class="streak-display">
+                        <p>Streak: <span id="streak-count">0</span></p>
+                        <p>Points: <span id="points-earned">0</span></p>
+                    </div>
+                    <div class="casino-actions hidden" id="casino-actions">
+                        <button id="bet-again">Bet Again</button>
+                        <button id="collect-winnings">Collect Winnings</button>
+                    </div>
+                    <button id="back-from-casino" class="back-btn">Back to Menu</button>
+                </div>
+            </div>
+            
+            <div id="find-number" class="screen hidden">
+                <div class="game-header">
+                    <h1>Find it and Get $</h1>
+                </div>
+                <div class="game-content">
+                    <div class="game-message" id="find-message">Guess the number between 1-10</div>
+                    <div class="guess-container">
+                        <input type="number" id="number-guess" min="1" max="10" value="5">
+                        <button id="submit-guess">Submit Guess</button>
+                    </div>
+                    <div class="attempts">
+                        <p>Attempts remaining: <span id="attempts-left">3</span></p>
+                    </div>
+                    <button id="back-from-find" class="back-btn">Back to Menu</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="wallet-container">
+            <div id="wallet-display">
+                <p>Wallet: <span id="wallet-balance">200</span> OASIS currency</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
